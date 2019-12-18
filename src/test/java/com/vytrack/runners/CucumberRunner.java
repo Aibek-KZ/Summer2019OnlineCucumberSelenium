@@ -6,10 +6,13 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "src\\test\\resources\\features",
-        glue = "com\\vytrack\\step_definitions",
-        dryRun = false //by default, if TRUE it will not run code, it will check
+        features = "src/test/resources/features",
+        glue = "com/vytrack/step_definitions",
+        dryRun = false,
+        tags = "@store_manager",
+        plugin = {"html:target/default-cucumber-reports"}
 )
+
 public class CucumberRunner {
 
 }
