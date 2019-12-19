@@ -38,3 +38,4 @@ Feature: Login
     Given user is on the login page
     Then user enters "wrong_username" username and "UserUser123" password
     And user verifies that "Invalid user name or password." message is displayed
+

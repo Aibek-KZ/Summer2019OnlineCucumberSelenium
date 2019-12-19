@@ -7,7 +7,7 @@ import io.cucumber.java.Before;
 
 public class Hook {
 
-    @Before //from io
+    @Before //from io.cucumber
     public void setup(){
         System.out.println("##############################");
         System.out.println("Test setup!");

@@ -4,8 +4,7 @@ import com.vytrack.pages.LoginPage;
 import com.vytrack.utilities.BrowserUtils;
 import com.vytrack.utilities.ConfigurationReader;
 import com.vytrack.utilities.Driver;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
+import io.cucumber.java.en.*;
 import org.junit.Assert;
 
 public class LoginStepDefinitions {
@@ -58,5 +57,6 @@ public class LoginStepDefinitions {
     public void user_verifies_that_message_is_displayed(String string) {
         System.out.println("Verified that warning message is displayed: "+string);
     }
+
 
 }

@@ -23,7 +23,8 @@ As user, I want to be able to....
 Every story has acceptance criteria
 Entire team participate sprint planning meeting to discuss stories for next sprint.
 Since everyone is looking into same requirements, there is gonna be less confusion during testing and development.
-In my project, PO was providing business requirements, then these requirements where written into use story with acceptance criteria. PO explains what feature team has to develop and how this feature should work.
+In my project, PO was providing business requirements, then these requirements where written into use
+story with acceptance criteria. PO explains what feature team has to develop and how this feature should work.
 Based on user story we create feature files to create tests.
 To implement BDD into our framework we use Cucumber.
 *Cucumber allows to write test scenarios from end-user perspective.
