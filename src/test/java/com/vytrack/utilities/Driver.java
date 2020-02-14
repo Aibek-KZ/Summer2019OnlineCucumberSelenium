@@ -1,4 +1,5 @@
 package com.vytrack.utilities;
+import io.appium.java_client.remote.MobileCapabilityType;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
@@ -9,9 +10,12 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.BrowserType;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
+import java.net.MalformedURLException;
 import java.net.URL;
 
 public class Driver {
@@ -84,7 +88,20 @@ public class Driver {
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
+                case "mobile_chrome":
+                    try {
+                        DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
+                        desiredCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "Pixel_2");
+                        desiredCapabilities.setCapability(MobileCapabilityType.VERSION, "7.0");
+                        desiredCapabilities.setCapability(MobileCapabilityType.BROWSER_NAME, BrowserType.CHROME);
+                        desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, Platform.ANDROID);
+                        driverPool.set(new RemoteWebDriver(new URL("http://localhost:4723/wd/hub"), desiredCapabilities));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                     break;
+                default:
+                    throw new RuntimeException("Invalid browser name!");
             }
         }
         //return corresponded to thread id webdriver object
@@ -105,6 +122,7 @@ public class Driver {
 //    //if switch statement complains on string parameter
 //    //change java version to 7+, better at least 8
 //    //File--> Project Structure--> Set Project language level to at least 8 or above
+
 //    public static WebDriver get() {
 //        //if webdriver object was not created yet
 //        if (driver == null) {
